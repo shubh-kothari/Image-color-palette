@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Color Identifier</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Image Color Identifier</h1>
+            <p>Upload an image to see its primary colors.</p>
+        </header>
+
+        <main>
+            <div class="uploader">
+                <label for="image-upload" class="upload-label">Choose an Image</label>
+                <input type="file" id="image-upload" accept="image/*">
+            </div>
+
+            <div id="image-preview-container" class="hidden">
+                <img id="image-preview" src="#" alt="Your uploaded image">
+            </div>
+
+            <div id="color-palette" class="color-palette-container">
+                <!-- Color swatches will be inserted here by JavaScript -->
+            </div>
+            
+            <button id="resetButton" class="reset-button">Reset</button>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+    // Find the button with the id "resetButton"
+    const resetButton = document.getElementById('resetButton');
+
+    // Add an event listener that triggers on click
+    resetButton.addEventListener('click', function() {
+        // Reload the current page
+        location.reload();
+    });
+    </script>
+    <script>
+    // Create a new div element that will be our custom cursor
+    const cursor = document.createElement('div');
+    cursor.classList.add('custom-cursor');
+    document.body.appendChild(cursor);
+
+    // Variables to store the target and current positions of the cursor
+    let targetX = 0;
+    let targetY = 0;
+    let currentX = 0;
+    let currentY = 0;
+
+    // A smoothing factor (lower value = smoother/more lag)
+    const smoothing = 0.15;
+
+    // Update the target position whenever the mouse moves
+    window.addEventListener('mousemove', (e) => {
+        targetX = e.clientX;
+        targetY = e.clientY;
+    });
+
+    // Create an animation loop to smoothly move the cursor
+    function animate() {
+        // Linearly interpolate the current position towards the target position
+        currentX += (targetX - currentX) * smoothing;
+        currentY += (targetY - currentY) * smoothing;
+
+        // Apply the updated position to the custom cursor element
+        cursor.style.left = `${currentX}px`;
+        cursor.style.top = `${currentY}px`;
+
+        // Continue the animation on the next frame
+        requestAnimationFrame(animate);
+    }
+
+    // Start the animation loop
+    animate();
+    </script>
+</body>
+</html>
