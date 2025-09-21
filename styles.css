@@ -1,4 +1,3 @@
-/* Keyframes for all animations */
 @keyframes popIn {
     from {
         opacity: 0;
@@ -29,42 +28,26 @@
         box-shadow: 0 0 15px rgba(10, 49, 91, 0.35);
     }
 }
-
-/* Hide the default system cursor */
 body, a, button {
     cursor: none;
 }
-
-/* Style the custom cursor element */
 .custom-cursor {
     position: fixed;
     top: 0;
     left: 0;
-    width: 15px; /* Size of the black circle */
-    height: 15px; /* Size of the black circle */
+    width: 15px; 
+    height: 15px; 
     background-color: rgb(180, 76, 116);
     border-radius: 50%;
-    
-    /* The blue glow effect */
     box-shadow: 0 0 15px 4px rgba(89, 161, 237, 0.6);
-
-    /* This ensures the cursor doesn't block clicks on other elements */
     pointer-events: none;
-    
-    /* Center the cursor element on the actual pointer position */
     transform: translate(-50%, -50%);
-
-    /* High z-index to keep it on top of everything */
     z-index: 9999;
-    
-    /* Add a subtle transition for when it interacts with elements */
     transition: transform 0.2s ease-in-out;
 }
-
-/* Optional: Make the cursor react to hoverable elements */
 a:hover ~ .custom-cursor,
 button:hover ~ .custom-cursor {
-    transform: translate(-50%, -50%) scale(1.5); /* Enlarge the cursor on hover */
+    transform: translate(-50%, -50%) scale(1.5);
 }
 
 @keyframes pulseGlow {
@@ -192,7 +175,7 @@ header h1 {
 }
 
 .color-swatch {
-    cursor: pointer; /* Makes the swatch appear clickable */
+    cursor: pointer;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -257,3 +240,4 @@ header h1 {
 .hidden {
     display: none;
 }
+
