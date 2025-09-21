@@ -24,7 +24,6 @@
             </div>
 
             <div id="color-palette" class="color-palette-container">
-                <!-- Color swatches will be inserted here by JavaScript -->
             </div>
             
             <button id="resetButton" class="reset-button">Reset</button>
@@ -33,52 +32,50 @@
 
     <script src="script.js"></script>
     <script>
-    // Find the button with the id "resetButton"
     const resetButton = document.getElementById('resetButton');
 
-    // Add an event listener that triggers on click
     resetButton.addEventListener('click', function() {
-        // Reload the current page
         location.reload();
     });
     </script>
     <script>
-    // Create a new div element that will be our custom cursor
+    
     const cursor = document.createElement('div');
     cursor.classList.add('custom-cursor');
     document.body.appendChild(cursor);
 
-    // Variables to store the target and current positions of the cursor
+    
     let targetX = 0;
     let targetY = 0;
     let currentX = 0;
     let currentY = 0;
 
-    // A smoothing factor (lower value = smoother/more lag)
+    
     const smoothing = 0.15;
 
-    // Update the target position whenever the mouse moves
+   
     window.addEventListener('mousemove', (e) => {
         targetX = e.clientX;
         targetY = e.clientY;
     });
 
-    // Create an animation loop to smoothly move the cursor
+   
     function animate() {
-        // Linearly interpolate the current position towards the target position
+        
         currentX += (targetX - currentX) * smoothing;
         currentY += (targetY - currentY) * smoothing;
 
-        // Apply the updated position to the custom cursor element
+ 
         cursor.style.left = `${currentX}px`;
         cursor.style.top = `${currentY}px`;
 
-        // Continue the animation on the next frame
+        
         requestAnimationFrame(animate);
     }
 
-    // Start the animation loop
+    
     animate();
     </script>
 </body>
 </html>
+
