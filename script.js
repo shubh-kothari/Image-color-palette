@@ -118,7 +118,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }).join('');
     }
 
-    // --- NEW CODE FOR COPY FUNCTIONALITY ---
     const paletteContainer = document.getElementById('color-palette');
 
     paletteContainer.addEventListener('click', (event) => {
@@ -141,3 +140,4 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
